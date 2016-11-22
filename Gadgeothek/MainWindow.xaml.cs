@@ -1,16 +1,26 @@
 ﻿
+using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
 
 namespace Gadgeothek
 {
 
     public partial class MainWindow : Window
     {
+
+        //private string serverName = ConfigurationManager.AppSettings["server"];
+      //  private readonly LibraryAdminService _service = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch");
+
+
         public MainWindow()
         {
             InitializeComponent();
+
             Page page = new GadgetsPage();
             GadgetFrame.Navigate(page);
         }

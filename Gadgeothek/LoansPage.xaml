@@ -9,6 +9,7 @@
       Title="LoansPage">
 
     <Grid>
-        
+        <TextBlock Text="Test"></TextBlock>
+       
     </Grid>
 </Page>
