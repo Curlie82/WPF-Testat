@@ -12,7 +12,7 @@
     <DockPanel LastChildFill="True">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"  HorizontalAlignment="Left" Margin="20,15,0,0">
             <materialDesign:PackIcon Kind="Plus" Height="24" Width="24"/>
-            <TextBlock FontSize="15" Text="Add Gadget" Click="addGadget_Click"></TextBlock>
+            <TextBlock FontSize="15" Text="Add Gadget" ></TextBlock>
         </StackPanel>
         <Button DockPanel.Dock="Left" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
         <Button DockPanel.Dock="Bottom" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
@@ -22,8 +22,7 @@
             <Button Name="EditBtn" Content="Edit Gagdet" Margin="10 0 10 0" Click="ButtonEdit_OnClick" ></Button>
             <Button Name="DeleteBtn" Content="Delete Gagdet"  Click="ButtonDelete_OnClick" Margin="0,0,10,0"></Button> -->
 
-        <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" AutoGenerateColumns="False" Background="White" RowEditEnding="DgGadgets_RowEditEnding"  CellEditEnding="DgGadgets_CellEditEnding"
-          SelectionChanged="DgGadgets_SelectionChanged" SelectionMode="Single" SelectionUnit="FullRow" CellStyle="{StaticResource ResourceKey=DataGrid}">
+        <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>

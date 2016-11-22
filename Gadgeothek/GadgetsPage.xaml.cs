@@ -15,7 +15,7 @@ namespace Gadgeothek
     public partial class GadgetsPage : Page
     {
         private readonly LibraryAdminService _service = new LibraryAdminService("http://mge3.dev.ifs.hsr.ch");
-        bool isUpdateMode = false;
+        //bool isUpdateMode = false;
         public Gadget _selectedGadget = null;
 
         public Gadget SelectedGadget { 
@@ -51,18 +51,34 @@ namespace Gadgeothek
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            isUpdateMode = true;
-       }
-
-        private void DgGadgets_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            _selectedGadget = DgGadgets.SelectedItem as Gadget;
+            MessageBox.Show((DgGadgets.CurrentCell.Item.ToString()));
+            // isUpdateMode = true;
         }
 
-       /* private void DgGadgets_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Update gemacht");
-        }*/
+            string message = $"Are you sure that you want to delete the {Environment.NewLine}{SelectedGadget.Name} with ID {SelectedGadget.InventoryNumber}";
+            string title = "Are you sure?";
+
+            if (SelectedGadget != null &&
+                MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question) ==
+                MessageBoxResult.Yes)
+            {
+                _service.DeleteGadget(SelectedGadget);
+                LoadData();
+            }
+
+
+        }
+        /* private void DgGadgets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+         {
+             _selectedGadget = DgGadgets.SelectedItem as Gadget;
+         }*/
+
+        /* private void DgGadgets_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+         {
+             MessageBox.Show("Update gemacht");
+         }*/
 
         /*private void DgGadgets_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
@@ -82,21 +98,7 @@ namespace Gadgeothek
         }
 
 
-        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
-        {
-            string message = $"Are you sure that you want to delete the {Environment.NewLine}{SelectedGadget.Name} with ID {SelectedGadget.InventoryNumber}";
-            string title = "Are you sure?";
-            
-            if (SelectedGadget != null &&
-                MessageBox.Show(message,title,MessageBoxButton.YesNo, MessageBoxImage.Question) ==
-                MessageBoxResult.Yes)
-            {
-                _service.DeleteGadget(SelectedGadget);
-                LoadData();
-            }
-
-
-        }
+       
     }
 
 }

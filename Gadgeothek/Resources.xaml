@@ -14,11 +14,11 @@
     </Style>
 
 
-    <Style x:Key="DataGrid" TargetType="{x:Type DataGrid}">
+    <Style x:Key="DataGrid" TargetType="DataGrid">
         <Setter Property="CellStyle">
             <Setter.Value>
                 <Style TargetType="DataGridCell">
-                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="BorderThickness" Value="2"/>
                     <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                 </Style>
             </Setter.Value>
