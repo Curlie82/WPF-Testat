@@ -31,7 +31,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="CornflowerBlue" />
+                                        <Setter TargetName="Border" Property="Background" Value=" #3f51b5" />
                                         <Setter Property="Foreground" Value="White"/>
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">

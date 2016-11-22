@@ -3,8 +3,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using ch.hsr.wpf.gadgeothek.domain;
 using ch.hsr.wpf.gadgeothek.service;
+using MessageBox = System.Windows.MessageBox;
 
 
 namespace Gadgeothek
@@ -51,9 +53,23 @@ namespace Gadgeothek
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show((DgGadgets.CurrentCell.Item.ToString()));
+            int currentIndex = DgGadgets.SelectedIndex;
+            
+
             // isUpdateMode = true;
         }
+
+        private void addNewGadget_onClick(object sender, RoutedEventArgs e)
+        {
+            Gadgets.Add(new Gadget());
+            DgGadgets.SelectedIndex = Gadgets.Count - 1;
+            //DgGadgets.CurrentColumn = DgGadgets.Columns(0);
+            DgGadgets.BeginEdit();
+            DgGadgets.Focus();
+            //_service.UpdateGadget(SelectedGadget);
+        }
+
+        
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {

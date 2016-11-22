@@ -11,9 +11,8 @@
 
     <DockPanel LastChildFill="True">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"  HorizontalAlignment="Left" Margin="20,15,0,0">
-            <materialDesign:PackIcon Kind="Plus" Height="24" Width="24"/>
-            <TextBlock FontSize="15" Text="Add Gadget" ></TextBlock>
-        </StackPanel>
+            <Button Content="Add Gadget" Click="addNewGadget_onClick" /> 
+            </StackPanel>
         <Button DockPanel.Dock="Left" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
         <Button DockPanel.Dock="Bottom" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
 
@@ -22,7 +21,7 @@
             <Button Name="EditBtn" Content="Edit Gagdet" Margin="10 0 10 0" Click="ButtonEdit_OnClick" ></Button>
             <Button Name="DeleteBtn" Content="Delete Gagdet"  Click="ButtonDelete_OnClick" Margin="0,0,10,0"></Button> -->
 
-        <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
+        <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -35,7 +34,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="ID" Width="*" IsReadOnly="false" />
+                <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="ID" Width="*" IsReadOnly="True" />
                     <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" IsReadOnly="True" />
                 <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Hersteller" Width="*" IsReadOnly="True" />
                 <DataGridTextColumn Binding="{Binding Price}" Header="Preis" Width="*" IsReadOnly="True" />
