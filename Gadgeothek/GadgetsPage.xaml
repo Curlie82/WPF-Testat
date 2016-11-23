@@ -23,10 +23,10 @@
 
         <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
             <DataGrid.Columns>
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn CellStyle="{StaticResource MyDataGridCellStyle}" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Style="{StaticResource ResourceKey=TransparentButtonStyle}" Click="btnUpdate_Click">
+                            <Button Style="{StaticResource ResourceKey=TransparentButtonStyle}" Click="btnUpdate_Click" >
                                 <StackPanel>
                                     <materialDesign:PackIcon Kind="Pencil" Height="16" Width="16" Background="Transparent" />
                                 </StackPanel>
@@ -34,12 +34,12 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="ID" Width="*" IsReadOnly="True" />
-                    <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Hersteller" Width="*" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Price}" Header="Preis" Width="*" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Condition}" Header="Zustand" Width="*" IsReadOnly="True" />
-                <DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="ID" Width="40" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Hersteller" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn Binding="{Binding Price}" Header="Preis" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn Binding="{Binding Condition}" Header="Zustand" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTemplateColumn CellStyle="{StaticResource MyDataGridCellStyle}" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Style="{StaticResource ResourceKey=TransparentButtonStyle}" Click="ButtonDelete_OnClick">

@@ -18,7 +18,7 @@ namespace Gadgeothek
     {
         private readonly LibraryAdminService _service = new LibraryAdminService("http://mge3.dev.ifs.hsr.ch");
         //bool isUpdateMode = false;
-        public Gadget _selectedGadget = null;
+        private Gadget _selectedGadget = null;
 
         public Gadget SelectedGadget { 
 
@@ -54,9 +54,11 @@ namespace Gadgeothek
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             int currentIndex = DgGadgets.SelectedIndex;
-            
+
 
             // isUpdateMode = true;
+            //_service.UpdateGadget(SelectedGadget);
+
         }
 
         private void addNewGadget_onClick(object sender, RoutedEventArgs e)
@@ -66,7 +68,9 @@ namespace Gadgeothek
             //DgGadgets.CurrentColumn = DgGadgets.Columns(0);
             DgGadgets.BeginEdit();
             DgGadgets.Focus();
-            //_service.UpdateGadget(SelectedGadget);
+
+            //_service.AddGadget(SelectedGadget);
+
         }
 
         
@@ -83,18 +87,8 @@ namespace Gadgeothek
                 _service.DeleteGadget(SelectedGadget);
                 LoadData();
             }
-
-
         }
-        /* private void DgGadgets_SelectionChanged(object sender, SelectionChangedEventArgs e)
-         {
-             _selectedGadget = DgGadgets.SelectedItem as Gadget;
-         }*/
-
-        /* private void DgGadgets_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-         {
-             MessageBox.Show("Update gemacht");
-         }*/
+        
 
         /*private void DgGadgets_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {

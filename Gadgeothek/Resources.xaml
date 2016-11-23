@@ -13,18 +13,16 @@
         <Setter Property="Width" Value="20"/>
     </Style>
 
+    <!-- DataGridCell Style-->
+        <Style x:Key="MyDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#3f51b5"/>
+                <Setter Property="Foreground" Value="white"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Trigger>
 
-    <Style x:Key="DataGrid" TargetType="DataGrid">
-        <Setter Property="CellStyle">
-            <Setter.Value>
-                <Style TargetType="DataGridCell">
-                    <Setter Property="BorderThickness" Value="2"/>
-                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                </Style>
-            </Setter.Value>
-        </Setter>
+        </Style.Triggers>
     </Style>
-
-
 
 </ResourceDictionary>

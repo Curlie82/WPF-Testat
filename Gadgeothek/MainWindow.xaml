@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Gadgeothek"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         mc:Ignorable="d"
-        Title="AutoReservation" Height="620" Width="1000" MinWidth="1000" MinHeight="620"
+        Title="AutoReservation" Height="620" Width="1000" MinWidth="600" MinHeight="220"
         
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -31,7 +31,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value=" #3f51b5" />
+                                        <Setter TargetName="Border" Property="Background" Value="#3f51b5" />
                                         <Setter Property="Foreground" Value="White"/>
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
