@@ -20,9 +20,9 @@
                 <Setter Property="Background" Value="#3f51b5"/>
                 <Setter Property="Foreground" Value="white"/>
                 <Setter Property="BorderThickness" Value="0"/>
-            </Trigger>
+                </Trigger>
 
         </Style.Triggers>
     </Style>
-
+    
 </ResourceDictionary>

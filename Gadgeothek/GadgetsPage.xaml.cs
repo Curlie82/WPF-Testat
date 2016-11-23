@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using ch.hsr.wpf.gadgeothek.domain;
 using ch.hsr.wpf.gadgeothek.service;
 using MessageBox = System.Windows.MessageBox;
@@ -16,7 +18,7 @@ namespace Gadgeothek
     /// </summary>
     public partial class GadgetsPage : Page
     {
-        private readonly LibraryAdminService _service = new LibraryAdminService("http://mge3.dev.ifs.hsr.ch");
+        private readonly LibraryAdminService _service = new LibraryAdminService("http://mge6.dev.ifs.hsr.ch");
         //bool isUpdateMode = false;
         private Gadget _selectedGadget = null;
 
@@ -73,22 +75,23 @@ namespace Gadgeothek
 
         }
 
-        
+
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            string message = $"Are you sure that you want to delete the {Environment.NewLine}{SelectedGadget.Name} with ID {SelectedGadget.InventoryNumber}";
-            string title = "Are you sure?";
-
-            if (SelectedGadget != null &&
-                MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question) ==
-                MessageBoxResult.Yes)
+            if (SelectedGadget != null)
             {
-                _service.DeleteGadget(SelectedGadget);
-                LoadData();
+                string message =$"Are you sure that you want to delete the {Environment.NewLine}{SelectedGadget.Name} with ID {SelectedGadget.InventoryNumber}";
+                string title = "Are you sure?";
+                if (MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question) ==
+                    MessageBoxResult.Yes)
+                {
+                    _service.DeleteGadget(SelectedGadget);
+                    LoadData();
+                }
             }
         }
-        
+
 
         /*private void DgGadgets_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {

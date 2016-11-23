@@ -21,7 +21,7 @@
             <Button Name="EditBtn" Content="Edit Gagdet" Margin="10 0 10 0" Click="ButtonEdit_OnClick" ></Button>
             <Button Name="DeleteBtn" Content="Delete Gagdet"  Click="ButtonDelete_OnClick" Margin="0,0,10,0"></Button> -->
 
-        <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
+        <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" SelectedItem="{Binding SelectedGadget, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTemplateColumn CellStyle="{StaticResource MyDataGridCellStyle}" >
                     <DataGridTemplateColumn.CellTemplate>
@@ -42,10 +42,8 @@
                 <DataGridTemplateColumn CellStyle="{StaticResource MyDataGridCellStyle}" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Style="{StaticResource ResourceKey=TransparentButtonStyle}" Click="ButtonDelete_OnClick">
-                                <StackPanel>
-                                    <materialDesign:PackIcon Kind="Delete" Height="16" Width="16"/>
-                                </StackPanel>
+                            <Button Style="{StaticResource ResourceKey=TransparentButtonStyle}" Click="ButtonDelete_OnClick" Name="DeleteButton">
+                                <materialDesign:PackIcon Kind="Delete" Height="16" Width="16" Background="Transparent" />
                             </Button>
                             </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
