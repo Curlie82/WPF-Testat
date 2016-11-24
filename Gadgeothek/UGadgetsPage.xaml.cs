@@ -14,7 +14,7 @@ namespace Gadgeothek
     /// </summary>
     public partial class UGadgetsPage : UserControl
     {
-        private readonly LibraryAdminService _service = new LibraryAdminService("http://mge6.dev.ifs.hsr.ch");
+        private readonly LibraryAdminService _service = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch");
         private Gadget _selectedGadget = null;
 
         public Gadget SelectedGadget
@@ -58,15 +58,17 @@ namespace Gadgeothek
 
         private void addNewGadget_onClick(object sender, RoutedEventArgs e)
         {
-            Gadgets.Add(new Gadget ("TestName")
+            var newGadget = new Gadget("");
+            var dialog = new GadgetDialog(newGadget);
+            dialog.actionText.Text = "Gadget erstellen";
+            if (dialog.ShowDialog() == false)
             {
-                Manufacturer = "TestManufacturer",
-                Price = 12.00
-            });
+                return;
+            }
+            _service.AddGadget(newGadget);
+            LoadData();
+            DgGadgets.SelectedItem = newGadget;
 
-            DgGadgets.SelectedIndex = Gadgets.Count - 1;
-            DgGadgets.CurrentColumn = DgGadgets.Columns[0];
-            _service.AddGadget(SelectedGadget);
 
         }
 
@@ -85,6 +87,22 @@ namespace Gadgeothek
                     LoadData();
                 }
             }
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var gadgetToEdit = (Gadget)DgGadgets.SelectedItem;
+            var dialog = new GadgetDialog(gadgetToEdit);
+            dialog.actionText.Text = "Gadget ändern";
+            if (dialog.ShowDialog() == false)
+            {
+                return;
+            }
+            _service.UpdateGadget(gadgetToEdit);
+            LoadData();
+            DgGadgets.SelectedItem = gadgetToEdit;
+            
+
         }
     }
 
