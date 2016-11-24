@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using ch.hsr.wpf.gadgeothek.domain;
@@ -39,43 +40,34 @@ namespace Gadgeothek
             DataContext = this;
             InitializeComponent();
             LoadData();
+            Gadgets.CollectionChanged += GadgetsCollectionChanged;
+            
+            
         }
-    
+
+        private void GadgetsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            
+        }
+
         public void LoadData()
         {
             Gadgets.Clear();
-
             _service.GetAllGadgets().ForEach(g => Gadgets.Add(g));
         }
 
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            //int currentIndex = DgGadgets.SelectedIndex;
-            //_service.UpdateGadget(SelectedGadget);
-        }
 
         private void addNewGadget_onClick(object sender, RoutedEventArgs e)
         {
-            Gadgets.Add(new Gadget
+            Gadgets.Add(new Gadget ("TestName")
             {
-                InventoryNumber = "100",
-                Name = "TestName",
                 Manufacturer = "TestManufacturer",
-                Price = 12.00,
-                Condition = Condition.New
+                Price = 12.00
             });
 
             DgGadgets.SelectedIndex = Gadgets.Count - 1;
             DgGadgets.CurrentColumn = DgGadgets.Columns[0];
-
-           
-
-
-            DgGadgets.BeginEdit();
-
-
-            // DgGadgets.Focus();
             _service.AddGadget(SelectedGadget);
 
         }
@@ -96,27 +88,6 @@ namespace Gadgeothek
                 }
             }
         }
-
-
-        /*private void DgGadgets_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            
-            if (isUpdateMode) //The Row is  edited
-
-            {
-                TextBox t = e.EditingElement as TextBox;  // Assumes columns are all TextBoxes
-                DataGridColumn dgc = e.Column;
-            }
-
-        }*/
-
-        private void addGadget_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-
     }
 
 }
