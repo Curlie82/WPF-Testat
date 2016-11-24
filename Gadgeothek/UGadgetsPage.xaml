@@ -15,7 +15,7 @@
             <Button DockPanel.Dock="Left" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
             <Button DockPanel.Dock="Bottom" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
 
-            <Button DockPanel.Dock="Right"  Style="{StaticResource ResourceKey=TransparentButtonStyle}"/>
+            <Button DockPanel.Dock="Right" Width="80" Style="{StaticResource ResourceKey=TransparentButtonStyle}"/>
 
         <DataGrid Name="DgGadgets" RowStyle="{StaticResource MyDataGridRowStyle}" ItemsSource="{Binding Gadgets, Mode=TwoWay}" SelectedItem="{Binding SelectedGadget, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
                 <DataGrid.Columns>
@@ -34,7 +34,7 @@
                     <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                     <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Hersteller" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                     <DataGridTextColumn Binding="{Binding Price}" Header="Preis" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-                    <DataGridTextColumn Binding="{Binding Condition}" Header="Zustand" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                    <DataGridTextColumn Binding="{Binding Condition}" Header="Zustand" Width="*"  IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                     <DataGridTemplateColumn CellStyle="{StaticResource MyDataGridCellStyle}" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

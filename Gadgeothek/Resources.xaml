@@ -15,7 +15,7 @@
 
     <!-- DataGridCell Style-->
     <Style x:Key="MyDataGridCellStyle" TargetType="{x:Type DataGridCell}">
-        <Setter Property="Margin" Value="20,0,0,0"/>
+        <Setter Property="Margin" Value="15,0,0,0"/>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#3f51b5"/>
