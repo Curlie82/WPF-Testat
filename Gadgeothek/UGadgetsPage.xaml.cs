@@ -68,7 +68,13 @@ namespace Gadgeothek
 
             DgGadgets.SelectedIndex = Gadgets.Count - 1;
             DgGadgets.CurrentColumn = DgGadgets.Columns[0];
+
+           
+
+
             DgGadgets.BeginEdit();
+
+
             // DgGadgets.Focus();
             _service.AddGadget(SelectedGadget);
 
