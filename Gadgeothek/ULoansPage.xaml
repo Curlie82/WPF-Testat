@@ -7,12 +7,12 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel LastChildFill="True">
+        <DockPanel LastChildFill="True">
         <Button DockPanel.Dock="Top"  Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
         <Button DockPanel.Dock="Left" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
         <Button DockPanel.Dock="Bottom" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
         <Button DockPanel.Dock="Right"  Style="{StaticResource ResourceKey=TransparentButtonStyle}"/>
-        <DataGrid Background="White" Name="DgLoans" ItemsSource="{Binding Loans, Mode=TwoWay}" SelectedItem="{Binding SelectedLoan, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow">
+        <DataGrid RowStyle="{StaticResource MyDataGridRowStyle}" Background="White" Name="DgLoans" ItemsSource="{Binding Loans, Mode=TwoWay}" SelectedItem="{Binding SelectedLoan, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
            <!--     <DataGridTextColumn Binding="{Binding CustomerId}" Header="Kundennummer" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" /> -->
