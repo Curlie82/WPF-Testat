@@ -83,12 +83,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewDialog.xaml.cs">
+      <DependentUpon>AddNewDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UGadgetsPage.xaml.cs">
       <DependentUpon>UGadgetsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ULoansPage.xaml.cs">
       <DependentUpon>ULoansPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddNewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

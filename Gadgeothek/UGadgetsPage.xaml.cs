@@ -41,8 +41,6 @@ namespace Gadgeothek
             InitializeComponent();
             LoadData();
             Gadgets.CollectionChanged += GadgetsCollectionChanged;
-            
-            
         }
 
         private void GadgetsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
