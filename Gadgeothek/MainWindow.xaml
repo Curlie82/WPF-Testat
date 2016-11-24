@@ -16,10 +16,9 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" >
     <Grid>
-        <TabControl Name="TabControl" BorderThickness="0" >
+        <TabControl Name="TabControl" BorderThickness="0">
             <TabControl.Resources>
-                <Style TargetType="TabItem">
-                    <Setter Property="Template">
+                <Style TargetType="TabItem"><Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="TabItem" >
                                 <Border Name="Border" BorderThickness="1" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="0,0,4,0" Padding="5">
@@ -45,10 +44,10 @@
                 </Style>
             </TabControl.Resources>
             <TabItem Name="GadgetItem"  Header="Gadgets" FontSize="16">
-                <Frame Name="GadgetFrame" />
+                <local:UGadgetsPage x:Name="GadgetsPage"></local:UGadgetsPage>
             </TabItem>
             <TabItem Name="LoanItem" Header="Ausleihen" FontSize="16">
-                <Frame Name="LoanFrame" />
+                <local:ULoansPage x:Name="LoansPage"></local:ULoansPage>
             </TabItem>
            
         </TabControl>

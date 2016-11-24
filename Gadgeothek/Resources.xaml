@@ -15,13 +15,17 @@
 
     <!-- DataGridCell Style-->
         <Style x:Key="MyDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+        <!--<Setter Property="Margin" Value="20,0,0,0"/> -->
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#3f51b5"/>
                 <Setter Property="Foreground" Value="white"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 </Trigger>
-
+            <Trigger Property="IsEditing" Value="True">
+                <Setter Property="BorderBrush" Value="Lime"/>
+                <Setter Property="Background" Value="White"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
     

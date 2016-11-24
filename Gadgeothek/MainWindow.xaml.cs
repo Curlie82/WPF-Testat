@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Windows;
@@ -14,22 +15,19 @@ namespace Gadgeothek
     {
 
         //private string serverName = ConfigurationManager.AppSettings["server"];
-      //  private readonly LibraryAdminService _service = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch");
+        //  private readonly LibraryAdminService _service = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch");
 
 
         public MainWindow()
         {
             InitializeComponent();
-
-            Page page = new GadgetsPage();
-            GadgetFrame.Navigate(page);
         }
 
         public MainWindow(TabItem tabItem)
         {
             InitializeComponent();
 
-            if (tabItem.Name == "GadgetItem")
+            /*  if (tabItem.Name == "GadgetItem")
             {
                 //IsSelected has to be set manually, else the switching of the tabs won't work properly
                 GadgetItem.IsSelected = true;
@@ -40,8 +38,25 @@ namespace Gadgeothek
             {
                 GadgetItem.IsSelected = false;
                 LoanItem.IsSelected = true;
-            }
+            }*/
         }
+
+    /*    private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        {
+           if (GadgetItem.IsSelected)
+            {
+                UserControl page = new UGadgetsPage();
+                GadgetFrame.Navigate(page);
+
+            }
+            if (LoanItem.IsSelected)
+            {
+                UserControl page = new ULoansPage();
+                LoanFrame.Navigate(page);
+            }
+        }*/
+
     }
 }
 

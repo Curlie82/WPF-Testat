@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,18 +6,18 @@ using ch.hsr.wpf.gadgeothek.domain;
 using ch.hsr.wpf.gadgeothek.service;
 using Condition = ch.hsr.wpf.gadgeothek.domain.Condition;
 
-
 namespace Gadgeothek
 {
     /// <summary>
-    /// Interaktionslogik für GadgetsPage.xaml
+    /// Interaktionslogik für UGadgetsPage.xaml
     /// </summary>
-    public partial class GadgetsPage : Page
+    public partial class UGadgetsPage : UserControl
     {
         private readonly LibraryAdminService _service = new LibraryAdminService("http://mge6.dev.ifs.hsr.ch");
         private Gadget _selectedGadget = null;
 
-        public Gadget SelectedGadget { 
+        public Gadget SelectedGadget
+        {
 
             get { return _selectedGadget; }
             set
@@ -34,14 +33,14 @@ namespace Gadgeothek
         public ObservableCollection<Gadget> Gadgets { get; set; }
 
 
-        public GadgetsPage()
+        public UGadgetsPage()
         {
             Gadgets = new ObservableCollection<Gadget>();
             DataContext = this;
             InitializeComponent();
             LoadData();
         }
-
+    
         public void LoadData()
         {
             Gadgets.Clear();
@@ -59,18 +58,18 @@ namespace Gadgeothek
         private void addNewGadget_onClick(object sender, RoutedEventArgs e)
         {
             Gadgets.Add(new Gadget
-             {
+            {
                 InventoryNumber = "100",
                 Name = "TestName",
                 Manufacturer = "TestManufacturer",
                 Price = 12.00,
                 Condition = Condition.New
             });
-            
+
             DgGadgets.SelectedIndex = Gadgets.Count - 1;
             DgGadgets.CurrentColumn = DgGadgets.Columns[0];
             DgGadgets.BeginEdit();
-           // DgGadgets.Focus();
+            // DgGadgets.Focus();
             _service.AddGadget(SelectedGadget);
 
         }
@@ -81,7 +80,7 @@ namespace Gadgeothek
         {
             if (SelectedGadget != null)
             {
-                string message =$"Are you sure that you want to delete the {Environment.NewLine}{SelectedGadget.Name} with ID {SelectedGadget.InventoryNumber}";
+                string message = $"Are you sure that you want to delete the {Environment.NewLine}{SelectedGadget.Name} with ID {SelectedGadget.InventoryNumber}";
                 string title = "Are you sure?";
                 if (MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question) ==
                     MessageBoxResult.Yes)
@@ -107,11 +106,11 @@ namespace Gadgeothek
 
         private void addGadget_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 
-       
+
     }
 
 }

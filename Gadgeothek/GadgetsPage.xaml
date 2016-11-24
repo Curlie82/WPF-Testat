@@ -34,7 +34,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="ID" Width="40" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
+                <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="ID" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                 <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Hersteller" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                 <DataGridTextColumn Binding="{Binding Price}" Header="Preis" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />

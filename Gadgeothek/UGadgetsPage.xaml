@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Gadgeothek.UGadgetsPage"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:local="clr-namespace:Gadgeothek"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                mc:Ignorable="d" 
+                d:DesignHeight="300" d:DesignWidth="300" >
+   
+     <DockPanel LastChildFill="True">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"  HorizontalAlignment="Left" Margin="20,15,0,0">
+                <Button Content="Add Gadget" Click="addNewGadget_onClick" />
+            </StackPanel>
+            <Button DockPanel.Dock="Left" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
+            <Button DockPanel.Dock="Bottom" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
+
+            <Button DockPanel.Dock="Right"  Style="{StaticResource ResourceKey=TransparentButtonStyle}"/>
+            <!-- <Button Name="AddBtn" Content="Add Gagdet"  Click="ButtonAdd_OnClick" ></Button> 
+            <Button Name="EditBtn" Content="Edit Gagdet" Margin="10 0 10 0" Click="ButtonEdit_OnClick" ></Button>
+            <Button Name="DeleteBtn" Content="Delete Gagdet"  Click="ButtonDelete_OnClick" Margin="0,0,10,0"></Button> -->
+
+            <DataGrid Name="DgGadgets" ItemsSource="{Binding Gadgets, Mode=TwoWay}" SelectedItem="{Binding SelectedGadget, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" Background="White"  SelectionMode="Single" SelectionUnit="FullRow">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn CellStyle="{StaticResource MyDataGridCellStyle}" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource ResourceKey=TransparentButtonStyle}" Click="btnUpdate_Click" >
+                                    <StackPanel>
+                                        <materialDesign:PackIcon Kind="Pencil" Height="16" Width="16" Background="Transparent" />
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="ID" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                    <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Hersteller" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                    <DataGridTextColumn Binding="{Binding Price}" Header="Preis" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                    <DataGridTextColumn Binding="{Binding Condition}" Header="Zustand" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                    <DataGridTemplateColumn CellStyle="{StaticResource MyDataGridCellStyle}" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource ResourceKey=TransparentButtonStyle}" Click="ButtonDelete_OnClick" Name="DeleteButton">
+                                    <materialDesign:PackIcon Kind="Delete" Height="16" Width="16" Background="Transparent" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+</UserControl>
