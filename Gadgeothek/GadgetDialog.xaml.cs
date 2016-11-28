@@ -1,25 +1,12 @@
 ﻿using ch.hsr.wpf.gadgeothek.domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Gadgeothek
 {
-    
-    
+
     public partial class GadgetDialog : Window
     {
-        private Gadget _gadget;
+        private readonly Gadget _gadget;
         public Gadget Gadget { get; set; }
 
         public GadgetDialog(Gadget gadget)
@@ -34,7 +21,7 @@ namespace Gadgeothek
             InitializeComponent();
         }
 
-        private void submit_Click(object sender, RoutedEventArgs e)
+        private void submit_onClick(object sender, RoutedEventArgs e)
         {
             _gadget.Name = Gadget.Name;
             _gadget.Manufacturer = Gadget.Manufacturer;
@@ -43,7 +30,7 @@ namespace Gadgeothek
             DialogResult = true;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_onClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }

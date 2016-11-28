@@ -3,8 +3,6 @@
                     xmlns:local="clr-namespace:Gadgeothek">
 
     <!-- Button-Styles-->
-
-
     <Style x:Key="TransparentButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -13,12 +11,14 @@
         <Setter Property="Width" Value="20"/>
     </Style>
     
+    <!--EditDialog-Style -->
     <Style x:Key="EditDialogTextblock" TargetType="{x:Type TextBlock}">
         <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="0,0,0,10"></Setter>
-        
     </Style>
+    
+    
     <!-- DataGridCell Style-->
     <Style x:Key="MyDataGridCellStyle" TargetType="{x:Type DataGridCell}">
         <Setter Property="Margin" Value="15,0,0,0"/>
@@ -38,7 +38,7 @@
     <!-- DataGridCell Style-->
     <Style x:Key="MyDataGridRowStyle" TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource {x:Type DataGridRow}}">
         <Setter Property="Background" Value="White"/>
-       <Style.Triggers>
+        <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#3f51b5"/>
                 <Setter Property="Foreground" Value="white"/>
@@ -46,5 +46,4 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    </ResourceDictionary>
+</ResourceDictionary>

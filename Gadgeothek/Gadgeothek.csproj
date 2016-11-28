@@ -83,6 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters.cs" />
     <Compile Include="GadgetDialog.xaml.cs">
       <DependentUpon>GadgetDialog.xaml</DependentUpon>
     </Compile>
@@ -147,10 +148,6 @@
       <Project>{ac1eeaa5-ea41-46fc-8afe-f0cf4b936abb}</Project>
       <Name>ch.hsr.wpf.gadgeothek</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\deleteb.png" />
-    <Resource Include="img\deletew.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

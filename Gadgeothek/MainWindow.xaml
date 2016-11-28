@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Gadgeothek"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         mc:Ignorable="d"
-        Title="AutoReservation" Height="620" Width="1000" MinWidth="600" MinHeight="220"
+       Title="AutoReservation" Height="620" Width="1000" MinWidth="600" MinHeight="220"
         
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -21,7 +21,7 @@
                 <Style TargetType="TabItem"><Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="TabItem" >
-                                <Border Name="Border" BorderThickness="1" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="0,0,4,0" Padding="5">
+                                <Border Name="Border" BorderThickness="1" BorderBrush="Gainsboro" CornerRadius="1,1,0,0" Margin="0,0,4,0" Padding="5">
                                     <ContentPresenter x:Name="ContentSite"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"

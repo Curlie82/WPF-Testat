@@ -6,13 +6,16 @@
         xmlns:local="clr-namespace:Gadgeothek"
         mc:Ignorable="d"
         Title="AddNewDialog" Height="300" Width="300">
+    <Window.Resources>
+        <local:MyEnumToStringConverter x:Key="MyEnumConverter"/>
+        <local:MyEnumToIntConverter x:Key="MyEnumConverter2"/>
+    </Window.Resources>
     <Grid>
         <DockPanel LastChildFill="True">
-            <TextBlock x:Name="actionText" DockPanel.Dock="Top" FontSize="30" Padding="15" Background="LightGray"></TextBlock>
+            <TextBlock Name="ActionText" DockPanel.Dock="Top" FontSize="30" Padding="15" Background="LightGray"></TextBlock>
             <DockPanel DockPanel.Dock="Bottom" Background="LightGray">
-                <Button DockPanel.Dock="Left" Margin="10" Width="100" Height="30" Click="Button_Click">Abbrechen</Button>
-                <Button x:Name="submit" DockPanel.Dock="Right" HorizontalAlignment="Right" IsDefault="True" Margin="10" Width="100" Height="30" Click="submit_Click" >OK</Button>
-
+                <Button DockPanel.Dock="Left" Margin="10" Width="100" Height="30" Click="Cancel_onClick">Abbrechen</Button>
+                <Button x:Name="Submit" DockPanel.Dock="Right" HorizontalAlignment="Right" IsDefault="True" Margin="10" Width="100" Height="30" Click="submit_onClick" >OK</Button>
             </DockPanel>
             <Grid Margin="20,0">
                 <Grid.ColumnDefinitions>
@@ -33,7 +36,7 @@
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" Text="{Binding Name}"></TextBox>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Text="{Binding Manufacturer}"></TextBox>
                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Text="{Binding Price}"></TextBox>
-                <ComboBox Grid.Row="3" Grid.Column="1" Width="70" HorizontalAlignment="Left" Margin="0,0,0,10">
+                <ComboBox Name="CbStatus"  Grid.Row="3" Grid.Column="1" Width="70" HorizontalAlignment="Left" Margin="0,0,0,10" SelectedIndex ="{Binding Condition, Converter={StaticResource MyEnumConverter2}}" Text="{Binding Condition, Converter={StaticResource MyEnumConverter}}" >
                     <ComboBoxItem>New</ComboBoxItem>
                     <ComboBoxItem>Good</ComboBoxItem>
                     <ComboBoxItem>Damaged</ComboBoxItem>
@@ -44,3 +47,4 @@
         </DockPanel>
     </Grid>
 </Window>
+

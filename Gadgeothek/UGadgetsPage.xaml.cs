@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using ch.hsr.wpf.gadgeothek.domain;
 using ch.hsr.wpf.gadgeothek.service;
-using Condition = ch.hsr.wpf.gadgeothek.domain.Condition;
 
 namespace Gadgeothek
 {
-    /// <summary>
-    /// Interaktionslogik für UGadgetsPage.xaml
-    /// </summary>
     public partial class UGadgetsPage : UserControl
     {
         private readonly LibraryAdminService _service = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch");
@@ -40,13 +35,9 @@ namespace Gadgeothek
             DataContext = this;
             InitializeComponent();
             LoadData();
-            Gadgets.CollectionChanged += GadgetsCollectionChanged;
         }
 
-        private void GadgetsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            
-        }
+        
 
         public void LoadData()
         {
@@ -54,13 +45,12 @@ namespace Gadgeothek
             _service.GetAllGadgets().ForEach(g => Gadgets.Add(g));
         }
 
-
-
+        
         private void addNewGadget_onClick(object sender, RoutedEventArgs e)
         {
             var newGadget = new Gadget("");
             var dialog = new GadgetDialog(newGadget);
-            dialog.actionText.Text = "Gadget erstellen";
+            dialog.ActionText.Text = "Gadget erstellen";
             if (dialog.ShowDialog() == false)
             {
                 return;
@@ -68,8 +58,6 @@ namespace Gadgeothek
             _service.AddGadget(newGadget);
             LoadData();
             DgGadgets.SelectedItem = newGadget;
-
-
         }
 
 
@@ -93,7 +81,7 @@ namespace Gadgeothek
         {
             var gadgetToEdit = (Gadget)DgGadgets.SelectedItem;
             var dialog = new GadgetDialog(gadgetToEdit);
-            dialog.actionText.Text = "Gadget ändern";
+            dialog.ActionText.Text = "Gadget ändern";
             if (dialog.ShowDialog() == false)
             {
                 return;
@@ -101,9 +89,6 @@ namespace Gadgeothek
             _service.UpdateGadget(gadgetToEdit);
             LoadData();
             DgGadgets.SelectedItem = gadgetToEdit;
-            
-
         }
     }
-
 }
