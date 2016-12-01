@@ -1,48 +1,19 @@
 ﻿<Window x:Class="Gadgeothek.MainWindow"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Gadgeothek"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        mc:Ignorable="d"
-       Title="AutoReservation" Height="620" Width="1000" MinWidth="600" MinHeight="220"
-        
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        mc:Ignorable="d" Height="620" Width="1000" MinWidth="600" MinHeight="220"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="14"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" >
-    <Grid>
-        <TabControl Name="TabControl" BorderThickness="0">
-            <TabControl.Resources>
-                <Style TargetType="TabItem"><Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="TabItem" >
-                                <Border Name="Border" BorderThickness="1" BorderBrush="Gainsboro" CornerRadius="1,1,0,0" Margin="0,0,4,0" Padding="5">
-                                    <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="10,2"/>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="#3f51b5" />
-                                        <Setter Property="Foreground" Value="White"/>
-                                    </Trigger>
-                                    <Trigger Property="IsSelected" Value="False">
-                                        <Setter Property="Foreground" Value="DarkGray"/>
-                                        <Setter TargetName="Border" Property="Background" Value="#F0F0F0" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TabControl.Resources>
+        Title="Gadgeothek" >
+    <Grid Background="White">
+        <TabControl Name="TabControl" BorderThickness="1" Margin="10">
             <TabItem Name="GadgetItem"  Header="Gadgets" FontSize="16">
                 <local:UGadgetsPage x:Name="GadgetsPage"></local:UGadgetsPage>
             </TabItem>

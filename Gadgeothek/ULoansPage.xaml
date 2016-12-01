@@ -7,17 +7,26 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-        <DockPanel LastChildFill="True">
-        <Button DockPanel.Dock="Top"  Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
-        <Button DockPanel.Dock="Left" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
-        <Button DockPanel.Dock="Bottom" Style="{StaticResource ResourceKey=TransparentButtonStyle}" />
-        <Button DockPanel.Dock="Right"  Style="{StaticResource ResourceKey=TransparentButtonStyle}"/>
-        <DataGrid RowStyle="{StaticResource MyDataGridRowStyle}" Background="White" Name="DgLoans" ItemsSource="{Binding Loans, Mode=TwoWay}" SelectedItem="{Binding SelectedLoan, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
-           <!--     <DataGridTextColumn Binding="{Binding CustomerId}" Header="Kundennummer" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" /> -->
-                <DataGridTextColumn Binding="{Binding Customer}" Header="Kunde" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-                <DataGridTextColumn Binding="{Binding Gadget}" Header="Gadget" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+    <DockPanel LastChildFill="True">
+
+        <DataGrid Grid.Row="0" Name="DgGadgets" 
+                  Style="{StaticResource DefaultDataGrid}" 
+                  RowStyle="{StaticResource MyDataGridRowStyle}" 
+                  ItemsSource="{Binding Loans, Mode=TwoWay}" 
+                  SelectedItem="{Binding SelectedLoan, Mode=TwoWay}" 
+                  ColumnHeaderStyle="{StaticResource DefaultColumnHeader}"
+                  CanUserAddRows="False" 
+                  AutoGenerateColumns="False" 
+                  SelectionMode="Single" 
+                  SelectionUnit="FullRow" 
+                  GridLinesVisibility="None"
+                  HeadersVisibility="Column"
+                 >
+        <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
+                <DataGridTextColumn Binding="{Binding CustomerId}" Header="Kundennummer" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn Binding="{Binding Customer}" Header="Kunde" Width="2*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn Binding="{Binding Gadget}" Header="Gadget" Width="3*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                 <DataGridTextColumn Binding="{Binding GadgetId}" Header="GadgetId" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                 <DataGridTextColumn Binding="{Binding PickupDate}" Header="Abholdatum" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
                 <DataGridTextColumn Binding="{Binding ReturnDate}" Header="Rückgabedatum" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />

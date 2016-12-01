@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gadgeothek"
+        TextElement.FontSize="14"
         mc:Ignorable="d"
         Title="AddNewDialog" Height="300" Width="300">
     <Window.Resources>
@@ -14,10 +15,10 @@
         <DockPanel LastChildFill="True">
             <TextBlock Name="ActionText" DockPanel.Dock="Top" FontSize="30" Padding="15" Background="LightGray"></TextBlock>
             <DockPanel DockPanel.Dock="Bottom" Background="LightGray">
-                <Button DockPanel.Dock="Left" Margin="10" Width="100" Height="30" Click="Cancel_onClick">Abbrechen</Button>
-                <Button x:Name="Submit" DockPanel.Dock="Right" HorizontalAlignment="Right" IsDefault="True" Margin="10" Width="100" Height="30" Click="submit_onClick" >OK</Button>
+                <Button DockPanel.Dock="Left" Style="{StaticResource ResourceKey=DefaultButtonStyle}" Click="Cancel_onClick">Abbrechen</Button>
+                <Button x:Name="Submit" DockPanel.Dock="Right" HorizontalAlignment="Right" IsDefault="True" Style="{StaticResource ResourceKey=DefaultButtonStyle}" Click="submit_onClick" >OK</Button>
             </DockPanel>
-            <Grid Margin="20,0">
+            <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>

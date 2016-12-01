@@ -45,22 +45,6 @@ namespace Gadgeothek
             _service.GetAllGadgets().ForEach(g => Gadgets.Add(g));
         }
 
-        
-        private void addNewGadget_onClick(object sender, RoutedEventArgs e)
-        {
-            var newGadget = new Gadget("");
-            var dialog = new GadgetDialog(newGadget);
-            dialog.ActionText.Text = "Gadget erstellen";
-            if (dialog.ShowDialog() == false)
-            {
-                return;
-            }
-            _service.AddGadget(newGadget);
-            LoadData();
-            DgGadgets.SelectedItem = newGadget;
-        }
-
-
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
@@ -89,6 +73,20 @@ namespace Gadgeothek
             _service.UpdateGadget(gadgetToEdit);
             LoadData();
             DgGadgets.SelectedItem = gadgetToEdit;
+        }
+
+        private void addNewGadget_Click(object sender, RoutedEventArgs e)
+        {
+            var newGadget = new Gadget("");
+            var dialog = new GadgetDialog(newGadget);
+            dialog.ActionText.Text = "Gadget erstellen";
+            if (dialog.ShowDialog() == false)
+            {
+                return;
+            }
+            _service.AddGadget(newGadget);
+            LoadData();
+            DgGadgets.SelectedItem = newGadget;
         }
     }
 }
