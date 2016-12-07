@@ -24,9 +24,9 @@ namespace Gadgeothek
     public partial class ULoansPage : UserControl
     {
         public ObservableCollection<Loan> Loans { get; set; }
-        private readonly LibraryAdminService _service = new LibraryAdminService("http://mge6.dev.ifs.hsr.ch");
-        private Gadget _selectedLoan = null;
-        public Gadget SelectedGadget
+        private readonly LibraryAdminService _service = new LibraryAdminService(MainWindow.ServerUrl);
+        private Loan _selectedLoan = null;
+        public Loan SelectedLoan
         {
 
             get { return _selectedLoan; }
