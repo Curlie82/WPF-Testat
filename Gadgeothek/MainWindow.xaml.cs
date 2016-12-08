@@ -17,18 +17,7 @@ namespace Gadgeothek
             Console.WriteLine("The app is listening for updates through web sockets");
             InitializeComponent();
 
-            webSocketClient.NotificationReceived += (o, e) =>
-            {
-                Console.WriteLine("WebSocket::Notification: " + e.Notification.Target + " > " + e.Notification.Type);
-
-                if (e.Notification.Target == typeof(Gadget).Name.ToLower())
-                {
-                    var gadget = e.Notification.DataAs<Gadget>();
-                    // now you can use it as usual...
-                    Console.WriteLine("Details: " + gadget);
-                }
-            };
-
+            
             // spawn a new background thread in which the websocket client listens to notifications from the server
             var bgTask = webSocketClient.ListenAsync();
 

@@ -44,6 +44,12 @@ namespace Gadgeothek
             Loans = new ObservableCollection<Loan>();
             DataContext = this;
             InitializeComponent();
+            MainWindow.webSocketClient.NotificationReceived += (o, e) =>
+            {
+                Console.WriteLine("WebSocket::Notification: " + e.Notification.Target + " > " + e.Notification.Type);
+                LoadData();
+            };
+            
             LoadData();
 
         }

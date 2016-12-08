@@ -47,20 +47,20 @@ namespace Gadgeothek
             InitializeComponent();
             MainWindow.webSocketClient.NotificationReceived += (o, e) =>
             {
+                Console.WriteLine("WebSocket::Notification: " + e.Notification.Target + " > " + e.Notification.Type);
+
                 if (e.Notification.Target == typeof(Gadget).Name.ToLower())
                 {
                     var modifiedGadget = e.Notification.DataAs<Gadget>();
-                    Gadget oldGadget = null;
-                    foreach( var gadget in Gadgets)
+                    var previousSelectedGadget = _selectedGadget;
+                    LoadData();
+                    if (Gadgets.Contains(previousSelectedGadget))
                     {
-                        if (gadget.InventoryNumber == modifiedGadget.InventoryNumber)
-                        {
-                            oldGadget = gadget;
-                        }
+                        DgGadgets.SelectedItem = previousSelectedGadget;
                     }
-                    oldGadget = modifiedGadget;
                 }
             };
+            
             LoadData();
         }
 
