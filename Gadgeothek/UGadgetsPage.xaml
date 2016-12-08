@@ -20,7 +20,6 @@
                   RowStyle="{StaticResource MyDataGridRowStyle}" 
                   ItemsSource="{Binding Gadgets, Mode=TwoWay}" 
                   SelectedItem="{Binding SelectedGadget, Mode=TwoWay}" 
-                  ColumnHeaderStyle="{StaticResource DefaultColumnHeader}"
                   CanUserAddRows="False" 
                   AutoGenerateColumns="False" 
                   SelectionMode="Single" 

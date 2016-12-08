@@ -7,14 +7,12 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel LastChildFill="True">
 
-        <DataGrid Grid.Row="0" Name="DgGadgets" 
+    <DataGrid Grid.Row="0" Name="DgGadgets" 
                   Style="{StaticResource DefaultDataGrid}" 
                   RowStyle="{StaticResource MyDataGridRowStyle}" 
                   ItemsSource="{Binding Loans, Mode=TwoWay}" 
                   SelectedItem="{Binding SelectedLoan, Mode=TwoWay}" 
-                  ColumnHeaderStyle="{StaticResource DefaultColumnHeader}"
                   CanUserAddRows="False" 
                   AutoGenerateColumns="False" 
                   SelectionMode="Single" 
@@ -23,14 +21,28 @@
                   HeadersVisibility="Column"
                  >
         <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
-                <DataGridTextColumn Binding="{Binding CustomerId}" Header="Kundennummer" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-                <DataGridTextColumn Binding="{Binding Customer}" Header="Kunde" Width="2*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-                <DataGridTextColumn Binding="{Binding Gadget}" Header="Gadget" Width="3*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-                <DataGridTextColumn Binding="{Binding GadgetId}" Header="GadgetId" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-                <DataGridTextColumn Binding="{Binding PickupDate}" Header="Abholdatum" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-                <DataGridTextColumn Binding="{Binding ReturnDate}" Header="Rückgabedatum" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
-            </DataGrid.Columns>
-        </DataGrid>
-    </DockPanel>
+            <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}"  />
+            <DataGridTextColumn Binding="{Binding CustomerId}" Header="Kundennummer" Width="50" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+            <DataGridTextColumn SortMemberPath="Customer.Name" Header="Kunde" CellStyle="{StaticResource MyDataGridCellStyle}">
+                <DataGridTextColumn.Binding>
+                    <MultiBinding StringFormat="{} {0} - {1}">
+                        <Binding Path="Customer.Name"/>
+                        <Binding Path="Customer.Email"/>
+                    </MultiBinding>
+                </DataGridTextColumn.Binding>
+            </DataGridTextColumn>
+
+            <DataGridTextColumn SortMemberPath="Gadget.Name" Header="Gadget" CellStyle="{StaticResource MyDataGridCellStyle}" >
+                <DataGridTextColumn.Binding>
+                    <MultiBinding StringFormat="{} {0} - {1}">
+                        <Binding Path="Gadget.Name"/>
+                        <Binding Path="Gadget.Manufacturer"/>
+                    </MultiBinding>
+                </DataGridTextColumn.Binding>
+            </DataGridTextColumn>
+            <DataGridTextColumn Binding="{Binding GadgetId}" Header="GadgetId" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+            <DataGridTextColumn Binding="{Binding PickupDate}" Header="Abholdatum" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+            <DataGridTextColumn Binding="{Binding ReturnDate}" Header="Rückgabedatum" Width="*" IsReadOnly="True" CellStyle="{StaticResource MyDataGridCellStyle}" />
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>
